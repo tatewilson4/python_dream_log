@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h3>Dream Item Details</h3>
+    <div class="d-flex" id="odd">
+        <div class="mr-auto p-2"><p>{{ object.title }}</p></div>
+        <br>
+        <div class="mr-auto p2"><p>{{ object.dream_text }}</p></div>
+        <div class="mr-auto p2"><p>{{ object.created }}</p></div>
+        <br>
+        <p><audio controls>
+            <source src="{{ object.dream_audio.url }}" type="audio/mpeg">
+        </audio></p>
+        <div class="p-2"><a class="list_item_links" href="{% url "dream_update" object.id %}"> edit </a></div>
+        <div class="p-2"><a class="list_item_links" href="{% url "dream_delete" object.id %}"> delete </a></div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,1 +1,18 @@
 {% extends 'base.html' %}
+{% block content %}
+<div class="containter">
+    <h1>Dream List</h1>
+    <h4><a href="{% url 'dream_create' %}">Add A New Dream</a></h4>
+    {% for dream in object_list %}
+        <div class="d-flex">
+            <div class="mr-auto p2">{{ dream.title }}</div>
+            <audio controls>
+                <source src="{{ dream.dream_audio.url }}" type="audio/mpeg">
+            </audio>
+            <div class="p-2"><a href="{% url "dream_view" dream.id%}">View</a></div>
+            <div class="p-2"><a href="{% url "dream_update" dream.id%}">Edit</a></div>
+            <div class="p-2"><a href="{% url "dream_delete" dream.id%}">Delete</a></div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

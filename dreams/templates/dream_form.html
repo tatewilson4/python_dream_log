@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Upload or write your dream</h1>
+    <!--<form method="post" class="d-flex">{% csrf_token %}
+        Title: {{ form.title }}<br>
+        Text: {{ form.dream_text }}<br>
+        <input class="submit_input" type="submit" value="Submit" />
+    </form>-->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Title: {{ form.title }}</p>
+        <p>Text: {{ form.dream_text }}</p>
+        <p>Audio: {{ form.dream_audio }}</p>
+        <input type="submit" value="Upload">
+    </form>
+</div>
+{% endblock content %}
